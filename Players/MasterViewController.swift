@@ -52,12 +52,12 @@ class MasterViewController: UITableViewController {
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 	// TODO: Use tableView.indexPathForSelectedRow() to get the currently selected index path
-        let index = tableView.indexPathForSelectedRow()
 	//	 Then load the detail view with the player data
 
 	// TODO: Change the background color for your detail view to match your player.
-        let destination = segue.destinationViewController as DetailViewController
-        destination.detailItem = players[0]
+        var destination = segue.destinationViewController as DetailViewController
+        let indexPath = tableView.indexPathForSelectedRow()?.row
+        destination.detailItem = players[indexPath!]
 	}
 
 	// MARK: - UITableViewDataSource
@@ -69,7 +69,6 @@ class MasterViewController: UITableViewController {
 
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		// #warning Default implementation returns 0
-        println(players )
 		return players.count
 	}
 

@@ -9,37 +9,40 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-	
- 
-    @IBOutlet weak var nickname: UILabel!
-   
+
+    @IBOutlet weak var nick: UILabel!
+    
 	// TODO: Modify this class to support modal dismissal
 	// Hint: View Controllers should not dismiss themselves
 
 	/// You can load your player in here!
-	var detailItem: AnyObject? {
+	var detailItem: Player? {
 		// didSet gets called after the object is set
+       
 		didSet {
-            println("this far at least")
-            println(self)
 		    // Update the view.
 		    self.configureView()
 		}
 	}
-
     
 
 	// Load what the view should look like
 	func configureView() {
-        nickname.text = "yeah" //detailItem!.nickname
+       
 		// Update the user interface for the detail item.
-		// Show the Player's name, the icon for the player, score, and quote
+        		// Show the Player's name, the icon for the player, score, and quote
 	}
 
 	override func viewDidLoad() {
+        
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
-		self.configureView()
+        //println( self.detailItem!.nickname)         
+        nick.text = self.detailItem!.nickname
+        self.configureView()
+        
+        
+
 	}
 
 	override func didReceiveMemoryWarning() {
