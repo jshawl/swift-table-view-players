@@ -11,6 +11,9 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var nick: UILabel!
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var quote: UITextView!
+    @IBOutlet weak var score: UILabel!
     
 	// TODO: Modify this class to support modal dismissal
 	// Hint: View Controllers should not dismiss themselves
@@ -31,6 +34,7 @@ class DetailViewController: UIViewController {
        
 		// Update the user interface for the detail item.
         		// Show the Player's name, the icon for the player, score, and quote
+        
 	}
 
 	override func viewDidLoad() {
@@ -39,8 +43,10 @@ class DetailViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
         //println( self.detailItem!.nickname)         
         nick.text = self.detailItem!.nickname
+        icon.image = UIImage(named: self.detailItem!.team)
+        quote.text = self.detailItem!.quote
+        score.text = "Score: \(self.detailItem!.score)"
         self.configureView()
-        
         
 
 	}

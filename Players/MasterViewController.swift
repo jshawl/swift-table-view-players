@@ -92,8 +92,11 @@ class MasterViewController: UITableViewController {
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
 		// HINT:  Loading viewControllers from storyboards programatically
-		let detail = self.storyboard?.instantiateViewControllerWithIdentifier("detailViewController") as DetailViewController
-		
+		var detail = self.storyboard?.instantiateViewControllerWithIdentifier("detailViewController") as DetailViewController
+        let index = indexPath.row
+        detail.detailItem = players[index]
+        self.presentViewController(detail, animated: true, completion: nil)
+
 		// TODO: Load the selected user into detail
 		// TODO: Present detail modally
 	}
