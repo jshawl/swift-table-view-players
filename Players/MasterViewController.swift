@@ -20,6 +20,11 @@ class MasterViewController: UITableViewController {
 
     var players:[Player] = []
     
+    func dismissModal(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    
 	// TODO: Configure the existing cell to display Blue Players
 	// TODO: Add two extra cells, one for Red and Green Players, do not assign segues to them.
 	
@@ -55,9 +60,10 @@ class MasterViewController: UITableViewController {
 	//	 Then load the detail view with the player data
 
 	// TODO: Change the background color for your detail view to match your player.
-        var destination = segue.destinationViewController as DetailViewController
+        var destination = segue.destinationViewController as  DetailViewController
         let indexPath = tableView.indexPathForSelectedRow()?.row
         destination.detailItem = players[indexPath!]
+        
 	}
 
 	// MARK: - UITableViewDataSource
@@ -94,6 +100,7 @@ class MasterViewController: UITableViewController {
 		// HINT:  Loading viewControllers from storyboards programatically
 		var detail = self.storyboard?.instantiateViewControllerWithIdentifier("detailViewController") as DetailViewController
         let index = indexPath.row
+        detail.superController = self
         detail.detailItem = players[index]
         if detail.detailItem!.team != "blue" {
         self.presentViewController(detail, animated: true, completion: nil)
@@ -101,7 +108,8 @@ class MasterViewController: UITableViewController {
 		// TODO: Load the selected user into detail
 		// TODO: Present detail modally
 	}
-
+    
+    
 
 }
 

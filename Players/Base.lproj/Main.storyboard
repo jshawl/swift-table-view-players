@@ -158,6 +158,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="DRI-AC-7JZ" appends="YES" id="Rmv-Le-BnG"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN"/>
                     <connections>
@@ -165,9 +169,15 @@
                         <outlet property="nick" destination="5RL-3M-SZC" id="u8p-ao-3Mq"/>
                         <outlet property="quote" destination="xAA-2d-rZn" id="RDa-Kn-EED"/>
                         <outlet property="score" destination="Sl5-CB-7Wl" id="d6w-dS-JRs"/>
+                        <outlet property="swipeDown" destination="DRI-AC-7JZ" id="42X-sX-541"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="DRI-AC-7JZ">
+                    <connections>
+                        <action selector="dismissModal:" destination="Ah7-4n-0Wa" id="nE5-3A-uXg"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1343" y="64"/>
         </scene>

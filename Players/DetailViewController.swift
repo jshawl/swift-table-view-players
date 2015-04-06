@@ -10,10 +10,15 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    var superController:MasterViewController!
+    @IBOutlet var swipeDown: UISwipeGestureRecognizer!
     @IBOutlet weak var nick: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var quote: UITextView!
     @IBOutlet weak var score: UILabel!
+    @IBAction func dismissModal(sender: AnyObject) {
+        superController.dismissModal()
+    }
     
 	// TODO: Modify this class to support modal dismissal
 	// Hint: View Controllers should not dismiss themselves
