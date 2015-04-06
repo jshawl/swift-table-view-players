@@ -95,8 +95,9 @@ class MasterViewController: UITableViewController {
 		var detail = self.storyboard?.instantiateViewControllerWithIdentifier("detailViewController") as DetailViewController
         let index = indexPath.row
         detail.detailItem = players[index]
+        if detail.detailItem!.team != "blue" {
         self.presentViewController(detail, animated: true, completion: nil)
-
+        }
 		// TODO: Load the selected user into detail
 		// TODO: Present detail modally
 	}
